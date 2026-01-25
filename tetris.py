@@ -1,12 +1,38 @@
 class Blok:
-    def __init__(self, typ):
+    def __init__(self, typ, wysokosc, miejsce):
         self.typ = typ
+        self.jakaWysokosc = wysokosc
+        self.jakieMiejsce = miejsce
 
-dlugosc = 6
+wysokosc = 10
+dlugosc = 20
+blok = Blok(1, wysokosc, dlugosc/2)
 
-for d in range(dlugosc):
+def pokaz(y, x):
+    if(y>=blok.jakaWysokosc):
+        if(x<=blok.jakieMiejsce+6):
+            print('-')
+    elif(y==blok.jakaWysokosc-1):
+        if(x==blok.jakieMiejsce):
+            print('|')
+        if(x==blok.jakaWysokosc+4):
+            print('|')
+    else: print(' ', end='')
+
+for d in range(wysokosc, 0, -1):
     print('|', end='')
-    for i in range(20):
-        if(d==dlugosc-1): print('_', end='')
-        else: print(' ', end='')
+    for i in range(dlugosc):
+        if(d==1): print('_', end='')
+        else: pokaz(d, i)
     print('|')
+
+
+
+# print('---')
+# print('| |')
+# print('| |')
+# print('---')
+
+# print('------')
+# print('|    |')
+# print('------')
